@@ -243,11 +243,6 @@ def attendence_dislplay():
 
 
 
-def main():
-    # Your Streamlit app code here
-    app.run(debug=True)
-
-if __name__ == "__main__":
-    main()
+app.run(debug=True)
 
 
