@@ -92,7 +92,7 @@ def generate_frames():
     data = np.hstack([y, x])
 
     if os.path.exists(f_name):
-        old = np.load(f_name)
+        data = np.load('data.npy',allow_pickle=True)
         if old.shape[1] == data.shape[1]:  # Check if dimensions match
             data = np.vstack([old, data])
         else:
@@ -156,8 +156,7 @@ def predict():
     return render_template("resultpage.html")
 @app.route('/take_attendence')
 def take_attendence():
-    data = np.load('data.npy')
-
+    data = np.load('data.npy',allow_pickle=True)
     X = data[:,1:].astype(int)
     y = data[:,0]
     
