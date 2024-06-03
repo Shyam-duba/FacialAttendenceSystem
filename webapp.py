@@ -242,7 +242,7 @@ def attendence_dislplay():
     return render_template('displayattendence.html',attendence=load_attendence())
 
 
-@streamlit.experimental_script
+
 def main():
     # Your Streamlit app code here
     app.run(debug=True)
