@@ -1,9 +1,46 @@
 {
-    "version":2,
-    "builds":[
-        {"src":"webapp.py", "use":"@vercel/python", "config":"python3.6"}
-    ],
-    "routes":[
-
-    ]
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    {
+      "src": "/api/adduser",
+      "dest": "api/adduser.py"
+    },
+    {
+      "src": "/api/display",
+      "dest": "api/display.py"
+    },
+    {
+      "src": "/api/users",
+      "dest": "api/users.py"
+    },
+    {
+      "src": "/api/video_feed",
+      "dest": "api/video_feed.py"
+    },
+    {
+      "src": "/api/set_name",
+      "dest": "api/set_name.py"
+    },
+    {
+      "src": "/api/stop_recording",
+      "dest": "api/stop_recording.py"
+    },
+    {
+      "src": "/api/predict",
+      "dest": "api/predict.py"
+    },
+    {
+      "src": "/api/take_attendence",
+      "dest": "api/take_attendence.py"
+    },
+    {
+      "src": "/api/finish",
+      "dest": "api/finish.py"
+    },
+    {
+      "src": "/api/attendence_display",
+      "dest": "api/attendence_display.py"
+    }
+  ]
 }
