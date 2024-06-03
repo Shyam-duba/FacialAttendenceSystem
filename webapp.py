@@ -8,7 +8,7 @@ import json
 import numpy as np 
 import pandas as pd 
 from sklearn.neighbors import KNeighborsClassifier 
-
+import streamlit
 
 
 
@@ -242,6 +242,12 @@ def attendence_dislplay():
     return render_template('displayattendence.html',attendence=load_attendence())
 
 
-if __name__ == '__main__':
+@streamlit.experimental_script
+def main():
+    # Your Streamlit app code here
     app.run(debug=True)
-load_attendence()
+
+if __name__ == "__main__":
+    main()
+
+
