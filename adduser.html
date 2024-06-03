@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Student Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #555;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:active {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Student Registration</h1>
+        <form id="nameForm">
+            <label for="name">Enter Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Enter Age:</label>
+            <input type="text" id="age" name="age" required>
+            <label for="rollno">Enter Roll Number:</label>
+            <input type="text" name="rollno" id="rollno" required>
+            <button type="submit">Register Student</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('nameForm').onsubmit = function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var rollno = document.getElementById('rollno').value;
+            fetch('/set_name', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name, age: age, rollno: rollno }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = '/display';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        };
+    </script>
+</body>
+</html>

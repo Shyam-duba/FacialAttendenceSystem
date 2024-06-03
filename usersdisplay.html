@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .user-card {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .user-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .user-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .user-info p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('adduser') }}">add new user</a>
+    <div class="container">
+        <h1 style="text-align:center;">User List</h1>
+        {% for user in users %}
+        <div class="user-card">
+            <img src="https://via.placeholder.com/50" alt="User Icon">
+            <div class="user-info">
+                <h3>{{ user.name }}</h3>
+                <h3>{{ user.age }}</h3>
+                <h3>{{ user.rollno }}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
