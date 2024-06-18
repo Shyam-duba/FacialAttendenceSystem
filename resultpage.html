@@ -71,9 +71,9 @@
     </div>
 
     <script>
-        document.getElementById('videoFeed').src = "{{ url_for('take_attendence') }}";
+        document.getElementById('videoFeed').src = "{{ url_for('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/take_attendence') }}";
         document.getElementById('stopButton').onclick = function() {
-            fetch('/finish')
+            fetch('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/finish')
             .then(response => response.json())
             .then(data => {
                 console.log( data);
