@@ -128,7 +128,7 @@ def get_users():
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/set_name', methods=['POST'])
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/set_name', methods=['POST'])
 def set_name():
     global image_name, recording
     try:
@@ -143,7 +143,7 @@ def set_name():
         print(f"Error in /set_name: {e}")
         return jsonify({"error": "Internal Server Error"}), 500
 
-@app.route('/stop_recording')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/stop_recording')
 def stop_recording():
     global recording
     recording = False
@@ -154,7 +154,7 @@ def stop_recording():
 @app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/predict')
 def predict():
     return render_template("resultpage.html")
-@app.route('/take_attendence')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/take_attendence')
 def take_attendence():
     data = np.load('data.npy',allow_pickle=True)
     X = data[:,1:].astype(int)
