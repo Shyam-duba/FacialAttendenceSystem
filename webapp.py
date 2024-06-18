@@ -105,14 +105,14 @@ def generate_frames():
 def home():
     return render_template('index.html')
 
-@app.route('/adduser')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/adduser')
 def adduser():
     return render_template('adduser.html')
 
-@app.route('/display')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/display')
 def display():
     return render_template('display.html')
-@app.route('/users')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/users')
 def get_users():
     print(users)
     if not os.path.exists(f_name):
@@ -124,7 +124,7 @@ def get_users():
     
         return render_template("usersdisplay.html",users=users_list)
 
-@app.route('/video_feed')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/video_feed')
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
@@ -151,7 +151,7 @@ def stop_recording():
     cv2.destroyAllWindows()
     return jsonify({"message": "Recording stopped"}), 200
 
-@app.route('/predict')
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/predict')
 def predict():
     return render_template("resultpage.html")
 @app.route('/take_attendence')
@@ -197,7 +197,7 @@ def face_detect(model):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
         
-@app.route('/finish') 
+@app.route('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/finish') 
 def finish():
     global predicted_name, total_sheet
     camera.release()
