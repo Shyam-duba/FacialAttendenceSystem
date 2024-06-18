@@ -72,7 +72,7 @@
 
     <script>
         document.getElementById('stopButton').onclick = function() {
-            fetch('/stop_recording')
+            fetch('https://facial-attendence-system-70845hviq-shys-projects-25fb9959.vercel.app/stop_recording')
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
